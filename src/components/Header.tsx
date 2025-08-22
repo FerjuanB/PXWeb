@@ -24,7 +24,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Image 
-              src="/project_X_logo-new.png" 
+              src="/svg/projectXinnovation-GREEN-1.svg" 
               alt="Project X Innovation Logo" 
               width={160}
               height={50}

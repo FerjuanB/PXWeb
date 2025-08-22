@@ -7,7 +7,7 @@
   --card-foreground: #000000;
   --popover: #ffffff;
   --popover-foreground: #000000;
-  --primary: #89F336;
+  --primary: #C7FF00;
   --primary-foreground: #000000;
   --secondary: #f4f4f5;
   --secondary-foreground: #000000;
@@ -20,6 +20,14 @@
   --border: #e4e4e7;
   --input: #e4e4e7;
   --ring: #89F336;
+  /* Project X Innovation Color Palette */
+  --main-green: #C7FF00;
+  --lime-shade: #A7DF00;
+  --light-green-accent: #E5FF9C;
+  --soft-black: #4C4C4C; /* Dark Grey */
+  --main-black: #000000;
+  --main-white: #FFFFFF;
+  --soft-white: #F2F2F2;
 }
 
 .dark {
@@ -29,7 +37,7 @@
   --card-foreground: #fafafa;
   --popover: #000000;
   --popover-foreground: #fafafa;
-  --primary: #89F336;
+  --primary: #C7FF00;
   --primary-foreground: #000000;
   --secondary: #333333;
   --secondary-foreground: #fafafa;
@@ -64,7 +72,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-montserrat);
 }
 
 * {
@@ -75,4 +83,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Montserrat Font Weight Classes */
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
 }
