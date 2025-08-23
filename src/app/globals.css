@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #F2F2F2;
   --foreground: #000000;
   --card: #ffffff;
   --card-foreground: #000000;
@@ -9,7 +9,7 @@
   --popover-foreground: #000000;
   --primary: #C7FF00;
   --primary-foreground: #000000;
-  --secondary: #f4f4f5;
+  --secondary: #4C4C4C;
   --secondary-foreground: #000000;
   --muted: #f4f4f5;
   --muted-foreground: #666666;

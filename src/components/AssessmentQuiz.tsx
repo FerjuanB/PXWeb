@@ -21,53 +21,107 @@ const AssessmentQuiz = () => {
 
   const questions: Question[] = [
     {
-      id: 'erp_system',
-      question: 'What is your current ERP system situation?',
+      id: 'business_growth_stage',
+      question: 'What best describes your business growth stage?',
       options: [
-        { value: 'none', label: 'No ERP system in place', points: 10 },
-        { value: 'outdated', label: 'Using an outdated ERP system', points: 8 },
-        { value: 'partial', label: 'Partial ERP implementation', points: 6 },
-        { value: 'satisfied', label: 'Satisfied with current ERP', points: 2 },
+        { value: 'startup', label: 'Startup scaling rapidly (0-2 years)', points: 6 },
+        { value: 'growth', label: 'Established growth phase (3-10 years)', points: 8 },
+        { value: 'mature', label: 'Mature company optimizing operations (10+ years)', points: 10 },
+        { value: 'enterprise', label: 'Enterprise transformation phase', points: 10 },
       ],
     },
     {
-      id: 'business_size',
-      question: 'What is your company size?',
+      id: 'main_tech_challenge',
+      question: 'What is your #1 technology-related business challenge?',
       options: [
-        { value: 'small', label: '1-50 employees', points: 4 },
-        { value: 'medium', label: '51-200 employees', points: 8 },
-        { value: 'large', label: '201-1000 employees', points: 10 },
-        { value: 'enterprise', label: '1000+ employees', points: 10 },
+        { value: 'manual_processes', label: 'Manual processes eating up productive time', points: 9 },
+        { value: 'system_silos', label: 'Systems that don\'t talk to each other', points: 8 },
+        { value: 'scaling_issues', label: 'Can\'t scale current infrastructure', points: 10 },
+        { value: 'ai_opportunities', label: 'Missing AI/automation opportunities', points: 9 },
+        { value: 'security_compliance', label: 'Security and compliance concerns', points: 7 },
+        { value: 'not_sure', label: 'Not sure where to start', points: 5 },
       ],
     },
     {
-      id: 'edi_needs',
-      question: 'Do you need EDI (Electronic Data Interchange) solutions?',
+      id: 'data_integration',
+      question: 'How many critical business systems operate in silos?',
       options: [
-        { value: 'urgent', label: 'Yes, urgently needed', points: 10 },
-        { value: 'future', label: 'Planning for the future', points: 6 },
-        { value: 'maybe', label: 'Not sure what EDI is', points: 4 },
-        { value: 'no', label: 'No EDI needs', points: 0 },
+        { value: 'most_disconnected', label: 'Most systems are disconnected (5+)', points: 10 },
+        { value: 'some_gaps', label: 'Some integration gaps (3-4 systems)', points: 7 },
+        { value: 'minor_needs', label: 'Minor integration needs (1-2 systems)', points: 4 },
+        { value: 'well_integrated', label: 'Well-integrated ecosystem', points: 2 },
       ],
     },
     {
-      id: 'ui_design',
-      question: 'How would you rate your current website/UI design?',
+      id: 'ai_readiness',
+      question: 'How would you describe your organization\'s AI readiness?',
       options: [
-        { value: 'poor', label: 'Needs major improvement', points: 10 },
-        { value: 'average', label: 'Could be better', points: 6 },
-        { value: 'good', label: 'Good but could be updated', points: 4 },
-        { value: 'excellent', label: 'Excellent, no changes needed', points: 1 },
+        { value: 'know_need_help', label: 'We know AI could help but don\'t know where to start', points: 8 },
+        { value: 'identified_need_expertise', label: 'We\'ve identified AI opportunities but lack expertise', points: 9 },
+        { value: 'experimenting', label: 'We\'re experimenting with AI tools', points: 6 },
+        { value: 'strategy_need_implementation', label: 'We have AI strategy but need implementation help', points: 7 },
+        { value: 'not_priority', label: 'AI is not a priority for us', points: 2 },
       ],
     },
     {
-      id: 'timeline',
-      question: 'What is your timeline for implementation?',
+      id: 'automation_level',
+      question: 'What percentage of your repetitive business processes are automated?',
       options: [
-        { value: 'immediate', label: 'Immediate (1-3 months)', points: 10 },
-        { value: 'soon', label: 'Soon (3-6 months)', points: 8 },
-        { value: 'planned', label: 'Planned (6-12 months)', points: 6 },
-        { value: 'future', label: 'Future consideration (12+ months)', points: 2 },
+        { value: 'under_25', label: 'Less than 25%', points: 10 },
+        { value: '25_to_50', label: '25-50%', points: 8 },
+        { value: '50_to_75', label: '50-75%', points: 5 },
+        { value: 'over_75', label: 'More than 75%', points: 2 },
+      ],
+    },
+    {
+      id: 'roi_measurement',
+      question: 'How well can you measure ROI on technology investments?',
+      options: [
+        { value: 'struggle_prove_roi', label: 'We struggle to prove tech ROI to stakeholders', points: 9 },
+        { value: 'some_metrics', label: 'We track some metrics but lack comprehensive view', points: 7 },
+        { value: 'good_want_improve', label: 'We have good measurement but want to improve', points: 5 },
+        { value: 'excel_tracking', label: 'We excel at ROI measurement and tracking', points: 2 },
+      ],
+    },
+    {
+      id: 'decision_authority',
+      question: 'Who has decision-making authority for technology investments?',
+      options: [
+        { value: 'i_decide', label: 'I make the final decision', points: 10 },
+        { value: 'part_of_team', label: 'I\'m part of the decision-making team', points: 9 },
+        { value: 'i_influence', label: 'I influence but don\'t decide', points: 6 },
+        { value: 'researching_for_others', label: 'I\'m researching for someone else', points: 3 },
+      ],
+    },
+    {
+      id: 'business_impact',
+      question: 'How much revenue/productivity could you gain by solving your top tech challenge?',
+      options: [
+        { value: 'significant_100k', label: 'Significant impact ($100K+ annually)', points: 10 },
+        { value: 'moderate_25k_100k', label: 'Moderate impact ($25K-$100K annually)', points: 8 },
+        { value: 'some_10k_25k', label: 'Some impact ($10K-$25K annually)', points: 5 },
+        { value: 'minimal', label: 'Minimal quantifiable impact', points: 2 },
+      ],
+    },
+    {
+      id: 'urgency_driver',
+      question: 'What\'s driving your timeline for technology improvements?',
+      options: [
+        { value: 'immediate_crisis', label: 'Immediate business need/crisis', points: 10 },
+        { value: 'upcoming_event', label: 'Upcoming business event (merger, audit, launch)', points: 9 },
+        { value: 'budget_planning', label: 'Budget year planning', points: 7 },
+        { value: 'general_improvement', label: 'General improvement goal', points: 4 },
+        { value: 'just_exploring', label: 'Just exploring options', points: 2 },
+      ],
+    },
+    {
+      id: 'security_priority',
+      question: 'How critical are security and compliance requirements for your solution?',
+      options: [
+        { value: 'mission_critical', label: 'Mission-critical (regulated industry)', points: 8 },
+        { value: 'very_important', label: 'Very important (sensitive data)', points: 6 },
+        { value: 'moderately_important', label: 'Moderately important', points: 4 },
+        { value: 'basic_needs', label: 'Basic security needs', points: 2 },
       ],
     },
   ];
@@ -90,40 +144,102 @@ const AssessmentQuiz = () => {
   };
 
   const calculateScore = () => {
-    let totalScore = 0;
+    // Weighted scoring system based on business impact and urgency
+    const categoryWeights = {
+      businessImpact: 0.4, // 40% - Business Impact & Pain
+      urgency: 0.3,        // 30% - Urgency & Timeline  
+      strategic: 0.2,      // 20% - Strategic Readiness
+      context: 0.1         // 10% - Company Context
+    };
+
+    const categories = {
+      businessImpact: ['main_tech_challenge', 'data_integration', 'automation_level', 'business_impact'],
+      urgency: ['decision_authority', 'urgency_driver'],
+      strategic: ['ai_readiness', 'roi_measurement', 'security_priority'], 
+      context: ['business_growth_stage']
+    };
+
+    let categoryScores = {
+      businessImpact: 0,
+      urgency: 0,
+      strategic: 0,
+      context: 0
+    };
+
+    let categoryCounts = {
+      businessImpact: 0,
+      urgency: 0,
+      strategic: 0,
+      context: 0
+    };
+
+    // Calculate average scores for each category
     questions.forEach((question) => {
       const answer = answers[question.id];
       if (answer) {
         const option = question.options.find(opt => opt.value === answer);
         if (option) {
-          totalScore += option.points;
+          // Find which category this question belongs to
+          for (const [category, questionIds] of Object.entries(categories)) {
+            if (questionIds.includes(question.id)) {
+              categoryScores[category as keyof typeof categoryScores] += option.points;
+              categoryCounts[category as keyof typeof categoryCounts]++;
+              break;
+            }
+          }
         }
       }
     });
-    return totalScore;
+
+    // Calculate weighted final score (0-100 scale)
+    let finalScore = 0;
+    for (const category of Object.keys(categoryWeights) as Array<keyof typeof categoryWeights>) {
+      if (categoryCounts[category] > 0) {
+        const avgCategoryScore = categoryScores[category] / categoryCounts[category];
+        const normalizedScore = (avgCategoryScore / 10) * 100; // Normalize to 100
+        finalScore += normalizedScore * categoryWeights[category];
+      }
+    }
+
+    return Math.round(finalScore);
   };
 
   const getRecommendation = (score: number) => {
-    if (score >= 35) {
+    if (score >= 75) {
       return {
-        title: 'High Priority - Immediate Action Recommended',
-        description: 'Your business would significantly benefit from our comprehensive technology solutions. We recommend scheduling a consultation immediately to discuss your specific needs.',
-        action: 'Schedule Consultation',
-        priority: 'high'
+        title: 'Critical Action Needed - Schedule Your Strategy Session Today',
+        description: 'Your assessment reveals significant technology gaps that are likely costing your business substantial revenue and productivity. Our analysis shows you\'re an ideal candidate for immediate transformation.',
+        action: 'Book Strategy Session',
+        priority: 'critical',
+        urgency: 'Schedule within 24 hours',
+        benefits: 'Immediate 90-day action plan, ROI projections, priority roadmap'
       };
-    } else if (score >= 20) {
+    } else if (score >= 55) {
       return {
-        title: 'Medium Priority - Strategic Planning Recommended',
-        description: 'Your business has good potential for improvement with targeted technology solutions. Consider planning for upgrades in the near future.',
-        action: 'Learn More',
-        priority: 'medium'
+        title: 'High Priority - Schedule Discovery Call This Week',
+        description: 'Your business has significant opportunities for technology optimization. Based on your responses, we can help you achieve measurable improvements in efficiency and growth.',
+        action: 'Book Discovery Call',
+        priority: 'high',
+        urgency: 'Schedule this week',
+        benefits: 'Detailed gap analysis, phased implementation approach, custom solutions'
+      };
+    } else if (score >= 35) {
+      return {
+        title: 'Strategic Opportunity - Schedule Consultation This Month',
+        description: 'Your assessment shows good potential for targeted technology improvements. A structured approach could deliver meaningful business value.',
+        action: 'Schedule Consultation',
+        priority: 'medium',
+        urgency: 'Schedule this month',
+        benefits: 'Technology audit, strategic recommendations, implementation timeline'
       };
     } else {
       return {
-        title: 'Low Priority - Future Consideration',
-        description: 'Your current systems seem adequate, but keep us in mind for future technology needs and periodic assessments.',
+        title: 'Future Planning - Stay Connected for Emerging Opportunities',
+        description: 'Your current technology foundation appears stable. We recommend periodic assessments to identify future optimization opportunities as your business evolves.',
         action: 'Stay Connected',
-        priority: 'low'
+        priority: 'low',
+        urgency: 'Quarterly check-ins',
+        benefits: 'Industry insights, technology updates, future planning support'
       };
     }
   };
@@ -154,7 +270,15 @@ const AssessmentQuiz = () => {
             <CardContent className="space-y-6">
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">
-                  {score}/50 Points
+                  {score}/100 Points
+                </div>
+                <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-4 ${
+                  recommendation.priority === 'critical' ? 'bg-red-100 text-red-800' :
+                  recommendation.priority === 'high' ? 'bg-orange-100 text-orange-800' :
+                  recommendation.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                  'bg-green-100 text-green-800'
+                }`}>
+                  {recommendation.urgency}
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-4">
                   {recommendation.title}
@@ -162,15 +286,52 @@ const AssessmentQuiz = () => {
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   {recommendation.description}
                 </p>
+                
+                {recommendation.benefits && (
+                  <div className="bg-muted/50 p-4 rounded-lg mb-6">
+                    <h4 className="font-semibold text-foreground mb-2">What you'll get:</h4>
+                    <p className="text-sm text-muted-foreground">{recommendation.benefits}</p>
+                  </div>
+                )}
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="px-8">
+                <Button 
+                  size="lg" 
+                  className={`px-8 ${
+                    recommendation.priority === 'critical' ? 'bg-red-600 hover:bg-red-700' :
+                    recommendation.priority === 'high' ? 'bg-orange-600 hover:bg-orange-700' :
+                    ''
+                  }`}
+                >
                   {recommendation.action}
                 </Button>
                 <Button variant="outline" size="lg" onClick={resetQuiz}>
                   Retake Assessment
                 </Button>
+              </div>
+
+              {/* Score breakdown for transparency */}
+              <div className="mt-8 pt-6 border-t border-border">
+                <details className="text-sm">
+                  <summary className="cursor-pointer text-muted-foreground hover:text-foreground">
+                    View Score Breakdown
+                  </summary>
+                  <div className="mt-4 grid grid-cols-2 gap-4 text-xs">
+                    <div>
+                      <span className="font-medium">Business Impact & Pain:</span> 40%
+                    </div>
+                    <div>
+                      <span className="font-medium">Urgency & Authority:</span> 30%
+                    </div>
+                    <div>
+                      <span className="font-medium">Strategic Readiness:</span> 20%
+                    </div>
+                    <div>
+                      <span className="font-medium">Company Context:</span> 10%
+                    </div>
+                  </div>
+                </details>
               </div>
             </CardContent>
           </Card>
