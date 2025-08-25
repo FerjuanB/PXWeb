@@ -22,7 +22,7 @@ export default function About() {
               </p>
               
               <p>
-                Our expertise spans ERP systems, UI design, and EDI connections, ensuring your business operates at peak efficiency in today's digital landscape.
+                Our expertise spans ERP systems, UI design, and EDI connections, ensuring your business operates at peak efficiency in today&apos;s digital landscape.
               </p>
             </div>
           </div>

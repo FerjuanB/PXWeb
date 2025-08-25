@@ -148,7 +148,7 @@ export default function Services() {
 
                   {/* Client Result */}
                   <div className="bg-muted/50 p-3 rounded-lg border-l-4 border-primary">
-                    <p className="text-sm text-muted-foreground italic">"{service.clientResult}"</p>
+                    <p className="text-sm text-muted-foreground italic">&quot;{service.clientResult}&quot;</p>
                   </div>
 
                   {/* Progressive Disclosure */}

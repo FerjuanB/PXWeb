@@ -93,7 +93,7 @@ export default function Hero() {
             currentMode === 'ai' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'
           }`}>
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${modeStyles.ai.textColor}`}>
-              Unlock AI's Potential for{" "}
+              Unlock AI&apos;s Potential for{" "}
               <span className={modeStyles.ai.accentColor}>Your Business</span>
             </h1>
             

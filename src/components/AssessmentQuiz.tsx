@@ -159,14 +159,14 @@ const AssessmentQuiz = () => {
       context: ['business_growth_stage']
     };
 
-    let categoryScores = {
+    const categoryScores = {
       businessImpact: 0,
       urgency: 0,
       strategic: 0,
       context: 0
     };
 
-    let categoryCounts = {
+    const categoryCounts = {
       businessImpact: 0,
       urgency: 0,
       strategic: 0,
@@ -289,7 +289,7 @@ const AssessmentQuiz = () => {
                 
                 {recommendation.benefits && (
                   <div className="bg-muted/50 p-4 rounded-lg mb-6">
-                    <h4 className="font-semibold text-foreground mb-2">What you'll get:</h4>
+                    <h4 className="font-semibold text-foreground mb-2">What you&apos;ll get:</h4>
                     <p className="text-sm text-muted-foreground">{recommendation.benefits}</p>
                   </div>
                 )}
