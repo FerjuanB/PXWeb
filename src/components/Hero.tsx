@@ -13,9 +13,9 @@ export default function Hero() {
 
   useEffect(() => {
     const timings = {
-      logo: 3600,
-      business: 5000,
-      ai: 5000
+      logo: 4000,
+      business: 6500,
+      ai: 6500
     }
 
     const interval = setInterval(() => {
@@ -43,7 +43,7 @@ export default function Hero() {
       subtextColor: 'text-gray-300',
       accentColor: 'text-primary animate-pulse', // Project X green with pulse effect
       primaryCTA: 'bg-primary hover:bg-primary/90 text-black shadow-lg shadow-primary/30',
-      secondaryCTA: 'border-2 border-primary text-primary hover:bg-primary/20 hover:text-primary',
+      secondaryCTA: ' bg-secondary border-2 border-primary text-primary hover:bg-primary/20 hover:text-primary',
       particles: 'bg-primary/20'
     },
     ai: {
@@ -52,7 +52,7 @@ export default function Hero() {
       subtextColor: 'text-gray-300',
       accentColor: 'text-primary animate-pulse', // Project X green with pulse
       primaryCTA: 'bg-primary hover:bg-primary/90 text-black shadow-lg shadow-primary/30',
-      secondaryCTA: 'border-2 border-primary text-primary hover:bg-primary/20 hover:text-primary',
+      secondaryCTA: ' bg-secondary border-2 border-primary text-primary hover:bg-primary/20 hover:text-primary',
       particles: 'bg-primary/20'
     }
   }
@@ -115,7 +115,7 @@ export default function Hero() {
           <div className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ease-in-out ${
             currentMode === 'logo' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
           }`}>
-            <LightBeams />
+            {currentMode === 'logo' ? <LightBeams /> : null}
           </div>
           
         </div>

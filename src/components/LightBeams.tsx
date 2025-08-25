@@ -12,8 +12,7 @@ export default function LightBeams({ phrase = "PROJECT X INNOVATION", className 
   const [showPhrase, setShowPhrase] = useState(false)
 
   useEffect(() => {
-    const t = setTimeout(() => setShowPhrase(true), 2400)
-    return () => clearTimeout(t)
+    setShowPhrase(true)
   }, [])
 
   return (
