@@ -163,7 +163,7 @@ export default function Services() {
 
                   {/* CTAs */}
                   <div className="flex flex-col gap-2 pt-2">
-                    <Button 
+                    {/* <Button 
                       size="sm" 
                       className="w-full bg-primary hover:bg-primary/90 text-black font-medium"
                     >
@@ -175,7 +175,7 @@ export default function Services() {
                       className="w-full border-primary text-primary hover:bg-primary/10"
                     >
                       {service.secondaryCTA}
-                    </Button>
+                    </Button> */}
                   </div>
 
                   {/* Expand/Collapse Technical Details */}
