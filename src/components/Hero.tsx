@@ -9,31 +9,28 @@ type HeroMode = 'logo' | 'business' | 'ai'
 
 export default function Hero() {
   const [currentMode, setCurrentMode] = useState<HeroMode>('logo') // Start with logo
-  const [nextContent, setNextContent] = useState<'business' | 'ai'>('ai') // Track which content is next
+  const [hasSeenLogo, setHasSeenLogo] = useState(false) // Track if logo has been shown
 
   useEffect(() => {
-    const timings = {
-      logo: 4000,
-      business: 6500,
-      ai: 6500
+    // Initial logo animation timing
+    if (currentMode === 'logo') {
+      const logoTimer = setTimeout(() => {
+        setCurrentMode('business')
+        setHasSeenLogo(true)
+      }, 4000)
+      
+      return () => clearTimeout(logoTimer)
     }
-
-    const interval = setInterval(() => {
-      setCurrentMode(prev => {
-        if (prev === 'logo') {
-          // Switch to next content mode
-          const mode = nextContent
-          setNextContent(nextContent === 'business' ? 'ai' : 'business') // Alternate for next time
-          return mode
-        } else {
-          // Any content mode goes back to logo
-          return 'logo'
-        }
-      })
-    }, timings[currentMode])
-
-    return () => clearInterval(interval)
-  }, [currentMode, nextContent])
+    
+    // After logo is shown, alternate between business and AI
+    if (hasSeenLogo) {
+      const contentTimer = setTimeout(() => {
+        setCurrentMode(prev => prev === 'business' ? 'ai' : 'business')
+      }, 6500)
+      
+      return () => clearTimeout(contentTimer)
+    }
+  }, [currentMode, hasSeenLogo])
 
   // Unified dark theme with Project X Innovation styling for both modes
   const modeStyles = {
@@ -111,11 +108,11 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Logo/Transition Mode */}
+          {/* Logo Mode - Only shown initially */}
           <div className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ease-in-out ${
             currentMode === 'logo' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
           }`}>
-            {currentMode === 'logo' ? <LightBeams /> : null}
+            <LightBeams />
           </div>
           
         </div>

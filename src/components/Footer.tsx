@@ -1,4 +1,6 @@
 import Image from "next/image"
+import { Linkedin } from "lucide-react"
+import Link from "next/link"
 
 export default function Footer() {
   return (
@@ -36,7 +38,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-background/80">
               <li>info@projectxinnovation.com</li>
               <li>+1 (555) 123-4567</li>
-              <li>Worldwide Service</li>
+              <li>
+                <Link href="https://www.linkedin.com/company/project-x-innovation" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-primary transition-colors">
+                  <Linkedin className="h-4 w-4 mr-2" />
+                  <span>LinkedIn</span>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
