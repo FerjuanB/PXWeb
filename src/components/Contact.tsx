@@ -1,8 +1,28 @@
-import { Button } from "@/components/ui/button"
+"use client"
+
+import { useEffect, useRef } from "react"
 import { Card } from "@/components/ui/card"
 import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function Contact() {
+  const formContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    // Load HubSpot form script
+    const script = document.createElement('script')
+    script.src = "https://js.hsforms.net/forms/embed/50479142.js"
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+
+    // Clean up function
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script)
+      }
+    }
+  }, [])
+
   return (
     <section id="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto max-w-6xl px-4">
@@ -16,46 +36,9 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* HubSpot Contact Form */}
           <Card className="p-8">
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                ></textarea>
-              </div>
-              
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
-            </form>
+            <div className="hs-form-frame" ref={formContainerRef} data-region="na1" data-form-id="de711370-a909-4f31-92dc-b7bbc89068ce" data-portal-id="50479142"></div>
           </Card>
 
           {/* Contact Information */}
